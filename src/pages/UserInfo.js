@@ -90,72 +90,74 @@ export default function UserInfo() {
         </Box>
         <Stack direction="column" sx={classes.TextPosition}>
             <Container maxWidth="sm">
-                <Typography sx={classes.label}>
-                    Name
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="Russell P. Barnes"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
-                <Typography sx={classes.label}>
-                    Birthdate
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="March 18, 2000"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
-                 <Typography sx={classes.label}>
-                    Gender
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="Male"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
-                 <Typography sx={classes.label}>
-                    Email
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="russell.barnes@agri.com"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
-                 <Typography sx={classes.label}>
-                    Phone Number
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="09123323424"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
-                 <Typography sx={classes.label}>
-                    Address
-                </Typography>
-                <TextField
-                id="standard-read-only-input"
-                defaultValue="Ipilan, Tayabas City"
-                InputProps={{
-                    readOnly: true,
-                }}
-                variant="standard"
-                />
+                <Box component="form">
+                    <Typography sx={classes.label}>
+                        Name
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="Russell P. Barnes"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                    <Typography sx={classes.label}>
+                        Birthdate
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="March 18, 2000"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                    <Typography sx={classes.label}>
+                        Gender
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="Male"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                    <Typography sx={classes.label}>
+                        Email
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="russell.barnes@agri.com"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                    <Typography sx={classes.label}>
+                        Phone Number
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="09123323424"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                    <Typography sx={classes.label}>
+                        Address
+                    </Typography>
+                    <TextField
+                    id="standard-read-only-input"
+                    defaultValue="Ipilan, Tayabas City"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    variant="standard"
+                    />
+                </Box>
             </Container>
             <Button sx={classes.EditButton} aria-label="add" onClick={() => navigate('/account/edit/personalInformation')}>
                     EDIT

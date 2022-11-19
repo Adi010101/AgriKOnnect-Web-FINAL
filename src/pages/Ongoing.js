@@ -139,7 +139,7 @@ export default function Ongoing() {
           Transaction History
         </Typography>
         <ButtonGroup sx={classes.positionButton}>
-          <Button sx={classes.OngoingButton} onClick={() => navigate('/transactions/ongoing/details')}>Ongoing</Button>
+          <Button sx={classes.OngoingButton} onClick={() => navigate('/transactions/ongoing')}>Ongoing</Button>
           <Button sx={classes.DeliveredButton} onClick={() => navigate('/transactions/delivered')}>Delivered</Button>
         </ButtonGroup>
         <List>

@@ -14,12 +14,16 @@ import { Image } from 'mui-image';
 import ResponsiveDrawer from '../components/Drawer';
 import LineCharts from "../components/LineChart";
 import productimg from '../assets/lettuce.png';
+import {useNavigate} from 'react-router-dom';
 
 //ScreenSize
 const drawerWidth = 240;
 
 //Styles
 const classes = {
+  root: {
+    backgroundColor: 'blue'
+  },
   Header: {
     fontFamily: 'Poppins',
     fontWeight: 'bold',
@@ -69,6 +73,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
+
 //Storing of tempdata
 const RecentSoldList = [
   {
@@ -104,6 +110,7 @@ const RecentSoldList = [
 ];
 
 export default function Home (props) {
+  const navigate = useNavigate();
   return (
   <>
   <Box sx={{ display: 'flex' }}>
@@ -141,7 +148,7 @@ export default function Home (props) {
                           <ListItemText primary={name} secondary={date} 
                           primaryTypographyProps={{ style: classes.producttitle }}
                           secondaryTypographyProps={{style: classes.productsub }}/>
-                          <Button variant="contained" sx={classes.viewbutton}>VIEW</Button>
+                          <Button variant="contained" onClick={() => navigate('/transactions/recent')} sx={classes.viewbutton}>VIEW</Button>
                         </ListItem>
                       </Item>
                     </Stack>

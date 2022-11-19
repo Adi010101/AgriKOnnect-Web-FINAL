@@ -53,7 +53,7 @@ function ResponsiveDrawer(props) {
   const itemsList = [
     {
       text: "HOME",
-      path: '/',
+      path: '/home',
       icon: <HomeIcon sx={iconic}/>,
     },
     {

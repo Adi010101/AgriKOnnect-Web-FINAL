@@ -5,15 +5,10 @@ import { Box,
     styled,
     Paper,
     Typography,
-    List,
-    ListItemButton,
-    ListItemText,
-    ListItemIcon,} from '@mui/material';
+} from '@mui/material';
 import ResponsiveDrawer from '../components/Drawer';
-import { Image } from 'mui-image';
 import Toolbar from '@mui/material/Toolbar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import productimg from '../assets/lettuce.png';
 import {useNavigate} from 'react-router-dom';
 
 
@@ -77,45 +72,19 @@ const classes = {
           backgroundColor: '#388E3C',
         },
     },
+    Message: {
+        fontFamily: 'Poppins',
+        marginTop: 2,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+    SubMessage: {
+        fontFamily: 'Poppins',
+        color: '#000000',
+    }
 }
 
-//Storing of tempdata
-const RecentSoldList = [
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    },
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    },
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    },
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    },
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    }
-  ];
-
-
-
-export default function Reviews() {
+export default function EmptyReviews() {
     const navigate = useNavigate();
   return (
     <Box sx={{ display: 'flex' }}>
@@ -133,25 +102,12 @@ export default function Reviews() {
                 Reviews
             </Typography>
         </Stack>
-        <List>
-              {RecentSoldList.map((item, index) => {
-                const { name,reviews, image,path} = item;
-                return (
-                  <Box sx={{ width: '100%', marginBottom: 1 }}>
-                    <Stack direction={{ xs: "column-reverse"}}  spacing={10}>
-                      <Item key={index}>
-                        <ListItemButton onClick={() => navigate(path)}>
-                          {image && <ListItemIcon>{image}</ListItemIcon>}
-                          <ListItemText primary={name} secondary={reviews} 
-                          primaryTypographyProps={{ style: classes.producttitle }}
-                          secondaryTypographyProps={{style: classes.productsub }}/>
-                        </ListItemButton>
-                      </Item>
-                    </Stack>
-                  </Box>
-                );
-                })}
-          </List>
+        <Typography sx={classes.Message}>
+        0 Review
+        </Typography>
+        <Typography sx={classes.SubMessage}>
+        No review available
+        </Typography>
     </Box>
     </Box>
   )

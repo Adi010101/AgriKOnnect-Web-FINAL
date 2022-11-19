@@ -6,7 +6,6 @@ import { Box,
     Input, 
     Stack,
     InputAdornment, 
-    Container,
     IconButton, 
     Typography } from '@mui/material';
 import ResponsiveDrawer from '../components/Drawer';
@@ -50,7 +49,7 @@ const classes = {
         fontFamily: 'Poppins',
         fontWeight: 'bold',
         marginTop: 4,
-        marginLeft: -5,
+        marginLeft: 1,
         textAlign: 'left',
     },
     EditButton:{
@@ -107,6 +106,7 @@ export default function Password() {
                 </Typography>
             </Stack>
             <Stack direction="column" sx={classes.TextPosition}>
+                <Box component="form">
                     <Typography sx={classes.label}>
                     NEW PASSWORD
                     </Typography>
@@ -154,6 +154,7 @@ export default function Password() {
                         }
                     />
                     </FormControl>
+                </Box>
                 <Button sx={classes.EditButton} aria-label="add" onClick={() => navigate('/account')}>
                         SAVE CHANGES
                 </Button>

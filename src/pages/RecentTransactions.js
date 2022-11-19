@@ -108,19 +108,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 //Storing tempdata
 function createData(id, image, productname, quantity, productprice,
-  shippingfee, ordertotal, customername, deliveryaddress, modeofpayment,
-  status) {
-    return { id, image, productname, quantity, productprice,
-      shippingfee, ordertotal, customername, deliveryaddress, modeofpayment,
-      status};
-  }
-  
-  const rows = [
-    createData(1,'Image', 'Pechay', 25, 100.00, 10.00, 110.00, 'Althea Baculi',
-    'Brgy.Ipilan, Tayabas City','Cash on Delivery'),
-  ];
+    shippingfee, ordertotal, customername, deliveryaddress, modeofpayment,
+    status) {
+      return { id, image, productname, quantity, productprice,
+        shippingfee, ordertotal, customername, deliveryaddress, modeofpayment,
+        status};
+    }
+    
+    const rows = [
+      createData(1,'Image', 'Pechay', 25, 100.00, 10.00, 110.00, 'Althea Baculi',
+      'Brgy.Ipilan, Tayabas City','Cash on Delivery'),
+    ];
 
-export default function OngoingTransactionDetails() {
+export default function RecentTransactions() {
   return (
     <Box sx={{ display: 'flex' }}>
     <ResponsiveDrawer/>
