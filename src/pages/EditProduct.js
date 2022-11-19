@@ -106,7 +106,7 @@ const classes = {
         backgroundColor: '#388E3C',
         "&:hover": {
             color: '#FFFF',
-            backgroundColor: '#388E3C',
+            backgroundColor: '#6FCF97',
         },
         margin: 1,
     },
@@ -124,10 +124,10 @@ const classes = {
         fontFamily: 'Poppins',
         fontWeight: 'bold',
         color: '#FFFF',
-        backgroundColor: '#388E3C',
+        backgroundColor: '#F22323',
         "&:hover": {
             color: '#FFFF',
-            backgroundColor: '#388E3C',
+            backgroundColor: '#FF7D7D',
         },
         margin: 1,
     },

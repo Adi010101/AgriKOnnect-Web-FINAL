@@ -108,7 +108,7 @@ const classes = {
         backgroundColor: '#388E3C',
         "&:hover": {
             color: '#FFFF',
-            backgroundColor: '#388E3C',
+            backgroundColor: '#6FCF97',
         },
         margin: 1,
     },
@@ -116,10 +116,10 @@ const classes = {
         fontFamily: 'Poppins',
         fontWeight: 'bold',
         color: '#FFFF',
-        backgroundColor: '#388E3C',
+        backgroundColor: '#F22323',
         "&:hover": {
             color: '#FFFF',
-            backgroundColor: '#388E3C',
+            backgroundColor: '#FF7D7D',
         },
         margin: 1,
     },
@@ -197,64 +197,64 @@ export default function AddProduct() {
                     Add product details
                 </Typography>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
-                <FormHelperText sx={classes.label}>Select product category</FormHelperText>
-                <Select
-                value={category}
-                onChange={handleChange}
-                displayEmpty
-                sx={classes.labelItem}
-                >
-                    <MenuItem value="">
-                    <em>Category</em>
-                    </MenuItem>
-                    <MenuItem value={"Vegetables"}>Vegetables</MenuItem>
-                    <MenuItem value={"Fruits"}>Fruits</MenuItem>
-                </Select>
-                <FormHelperText sx={classes.label}>Product name</FormHelperText>
-                <TextField
-                    hiddenLabel
-                    id="productname"
-                    defaultValue=""
+                    <FormHelperText sx={classes.label}>Select product category</FormHelperText>
+                    <Select
+                    value={category}
+                    onChange={handleChange}
+                    displayEmpty
                     sx={classes.labelItem}
-                />
-                <FormHelperText sx={classes.label}>Growing Method</FormHelperText>
-                <Select
-                value={growingmethod}
-                onChange={onhandleChange}
-                displayEmpty
-                sx={classes.labelItem}
-                >
-                    <MenuItem value="">
-                    <em>Organic</em>
-                    </MenuItem>
-                    <MenuItem value={"Organic"}>Organic</MenuItem>
-                    <MenuItem value={"Fertilizer"}>Fertilizer</MenuItem>
-                </Select>
-                <FormHelperText sx={classes.label}>Product price</FormHelperText>
-                <TextField
-                    hiddenLabel
-                    id="productprice"
-                    defaultValue=""
+                    >
+                        <MenuItem value="">
+                        <em>Category</em>
+                        </MenuItem>
+                        <MenuItem value={"Vegetables"}>Vegetables</MenuItem>
+                        <MenuItem value={"Fruits"}>Fruits</MenuItem>
+                    </Select>
+                    <FormHelperText sx={classes.label}>Product name</FormHelperText>
+                    <TextField
+                        hiddenLabel
+                        id="productname"
+                        defaultValue=""
+                        sx={classes.labelItem}
+                    />
+                    <FormHelperText sx={classes.label}>Growing Method</FormHelperText>
+                    <Select
+                    value={growingmethod}
+                    onChange={onhandleChange}
+                    displayEmpty
                     sx={classes.labelItem}
-                />
+                    >
+                        <MenuItem value="">
+                        <em>Organic</em>
+                        </MenuItem>
+                        <MenuItem value={"Organic"}>Organic</MenuItem>
+                        <MenuItem value={"Fertilizer"}>Fertilizer</MenuItem>
+                    </Select>
+                    <FormHelperText sx={classes.label}>Product price</FormHelperText>
+                    <TextField
+                        hiddenLabel
+                        id="productprice"
+                        defaultValue=""
+                        sx={classes.labelItem}
+                    />
                 <Stack direction='row'>
-                <FormHelperText sx={classes.label}>Product quantity</FormHelperText>
-                <ButtonGroup sx= {classes.stepper} size="small" aria-label="small button group">
-                <Button sx={classes.StepperButton} onClick={IncNum}>+</Button>
-                    <Button sx = {classes.number}>{count}</Button>
-                    <Button sx={classes.StepperButton} onClick={DecNum}>-</Button>
-                </ButtonGroup>
-                <Typography sx={classes.stepperlabel}> 
-                    kg
-                </Typography>
+                    <FormHelperText sx={classes.label}>Product quantity</FormHelperText>
+                    <ButtonGroup sx= {classes.stepper} size="small" aria-label="small button group">
+                    <Button sx={classes.StepperButton} onClick={IncNum}>+</Button>
+                        <Button sx = {classes.number}>{count}</Button>
+                        <Button sx={classes.StepperButton} onClick={DecNum}>-</Button>
+                    </ButtonGroup>
+                    <Typography sx={classes.stepperlabel}> 
+                        kg
+                    </Typography>
                 </Stack>
                 <Stack direction='row' sx = {classes.positionButtons}>
                     <Button variant="contained" sx={classes.AddButton}>ADD PRODUCT</Button>
                     <Button variant="contained" sx={classes.CancelButton} onClick={() => navigate('/products')}>CANCEL</Button>
                 </Stack>
-                </FormControl>
-            </Stack>
-        </Box>
+            </FormControl>
+        </Stack>
+    </Box>
     </Box>
 </Box>
   )

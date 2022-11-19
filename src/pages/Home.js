@@ -9,12 +9,15 @@ import { Box,
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,} from '@mui/material';
+  ListItemIcon,
+  Fab,} from '@mui/material';
 import { Image } from 'mui-image';
 import ResponsiveDrawer from '../components/Drawer';
 import LineCharts from "../components/LineChart";
 import productimg from '../assets/lettuce.png';
 import {useNavigate} from 'react-router-dom';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ScrollTop from '../components/ScrollToTop';
 
 //ScreenSize
 const drawerWidth = 240;
@@ -61,6 +64,14 @@ const classes = {
     "&:hover": {
       color: '#FFFF',
       backgroundColor: '#388E3C',
+    },
+  },
+  ScrollTopButton:{
+    color: 'white',
+    backgroundColor: '#4DA351',
+    "&:hover": {
+      color: '#FFFF',
+      backgroundColor: '#31A05F',
     },
   },
 };
@@ -119,7 +130,7 @@ export default function Home (props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
+        <Toolbar id="back-to-top-anchor"/>
         <Typography variant='h3' sx={classes.Header}>
           Dashboard
         </Typography>
@@ -157,6 +168,11 @@ export default function Home (props) {
                 })}
           </List>
       </Box>
+      <ScrollTop {...props}>
+        <Fab sx= {classes.ScrollTopButton} size="medium" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
   </Box>
   </>
   );

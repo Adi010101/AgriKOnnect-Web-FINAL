@@ -8,13 +8,16 @@ import { Box,
     List,
     ListItemButton,
     ListItemText,
-    ListItemIcon,} from '@mui/material';
+    ListItemIcon,
+    Fab} from '@mui/material';
 import ResponsiveDrawer from '../components/Drawer';
 import { Image } from 'mui-image';
 import Toolbar from '@mui/material/Toolbar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import productimg from '../assets/lettuce.png';
 import {useNavigate} from 'react-router-dom';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ScrollTop from '../components/ScrollToTop';
 
 
 const drawerWidth = 240;
@@ -77,6 +80,14 @@ const classes = {
           backgroundColor: '#388E3C',
         },
     },
+    ScrollTopButton:{
+      color: 'white',
+      backgroundColor: '#4DA351',
+      "&:hover": {
+        color: '#FFFF',
+        backgroundColor: '#31A05F',
+      },
+    },
 }
 
 //Storing of tempdata
@@ -110,12 +121,36 @@ const RecentSoldList = [
       reviews: "12",
       path: "/account/review/product",
       image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    }
+    },
+    {
+      name: "Pechay",
+      reviews: "12",
+      path: "/account/review/product",
+      image: <Image duration = {0} src={productimg} height={50} width={50} />,
+    },
+    {
+      name: "Pechay",
+      reviews: "12",
+      path: "/account/review/product",
+      image: <Image duration = {0} src={productimg} height={50} width={50} />,
+    },
+    {
+      name: "Pechay",
+      reviews: "12",
+      path: "/account/review/product",
+      image: <Image duration = {0} src={productimg} height={50} width={50} />,
+    },
+    {
+      name: "Pechay",
+      reviews: "12",
+      path: "/account/review/product",
+      image: <Image duration = {0} src={productimg} height={50} width={50} />,
+    },
   ];
 
 
 
-export default function Reviews() {
+export default function Reviews(props) {
     const navigate = useNavigate();
   return (
     <Box sx={{ display: 'flex' }}>
@@ -124,7 +159,7 @@ export default function Reviews() {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
+        <Toolbar id="back-to-top-anchor"/>
         <Stack direction='row'>
             <Button onClick={() => navigate('/account')}>
             <ArrowBackIcon sx = {classes.arrowback}/>
@@ -153,6 +188,11 @@ export default function Reviews() {
                 })}
           </List>
     </Box>
+    <ScrollTop {...props}>
+        <Fab sx= {classes.ScrollTopButton} size="medium" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </Box>
   )
 }

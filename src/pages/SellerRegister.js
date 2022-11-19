@@ -1,5 +1,11 @@
 import React from 'react';
-import {Container,InputAdornment,IconButton,OutlinedInput,InputLabel, FormControl} from '@mui/material'
+import {Container,
+  InputAdornment,
+  IconButton,
+  OutlinedInput,
+  InputLabel, 
+  FormControl,
+Autocomplete,} from '@mui/material'
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -14,7 +20,8 @@ import { Image } from 'mui-image';
 import {useNavigate} from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { MuiTelInput } from 'mui-tel-input'
+import { MuiTelInput } from 'mui-tel-input';
+import { top100Films as data } from '../data/sampleData';
 
 const theme = createTheme();
 
@@ -110,6 +117,13 @@ export default function SellerRegister() {
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
+      const options = data.map((option) => {
+        const firstLetter = option.title[0].toUpperCase();
+        return {
+          firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+          ...option,
+        };
+      });
 
   return (
     <ThemeProvider theme={theme}>
@@ -207,7 +221,7 @@ export default function SellerRegister() {
               defaultCountry={'PH'}
               value={phone}sx={{marginTop: 2}} onChange={OnhandleChange} onlyCountries={['PH']}
               />
-              <FormControl fullWidth sx={{marginTop: 2}}>
+              <FormControl fullWidth sx={{marginTop: 1}}>
               <InputLabel sx={{marginTop: 2,}}>Password</InputLabel>
               <OutlinedInput
                 sx={classes.CustomOutlineTextField}
@@ -233,6 +247,17 @@ export default function SellerRegister() {
                 }
                 label="Password"
               />
+              </FormControl>
+              <FormControl fullWidth sx={{marginTop: 3}}>
+                <Autocomplete
+                sx={classes.CustomTextField}
+                id="grouped-demo"
+                fullWidth
+                options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+                groupBy={(option) => option.firstLetter}
+                getOptionLabel={(option) => option.title}
+                renderInput={(params) => <TextField {...params} label="Organization" />}
+                />
               </FormControl>
               <Button
                 type="submit"
