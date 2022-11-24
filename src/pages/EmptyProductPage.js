@@ -59,7 +59,7 @@ export default function EmptyProductPage() {
             </Typography>
             <Stack direction='column'>
                 <Box sx = {classes.illustration}>
-                    <Image durationg = {0} src={Ecommerce} height= {"50hv"} width= {"50hv"}></Image>
+                    <Image duration = {0} src={Ecommerce} height= {"50hv"} width= {"50hv"}></Image>
                 </Box>    
                     <Typography variant='h5' sx={classes.HeaderSub}>
                     You can now post your products.

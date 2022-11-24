@@ -104,10 +104,7 @@ export default function EditUserInfo() {
             <Avatar alt="User-Profile-Image" sx={classes.Icon} src={<AccountCircleIcon/>}/>
         </Box>
         <Box sx={classes.IconPosition}>
-            <Button sx = {classes.UploadImageButton} component="label">
-                Upload image
-                <input hidden accept="image/*" multiple type="file" />
-            </Button>
+            <input placeholder=" " name="image" type="file"/>
         </Box>
         <Stack direction="column">
                         <Typography sx={classes.DetailsText}>

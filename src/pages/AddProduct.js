@@ -228,7 +228,7 @@ export default function AddProduct() {
                         <em>Organic</em>
                         </MenuItem>
                         <MenuItem value={"Organic"}>Organic</MenuItem>
-                        <MenuItem value={"Fertilizer"}>Fertilizer</MenuItem>
+                        <MenuItem value={"Fertilizer"}>Conventional</MenuItem>
                     </Select>
                     <FormHelperText sx={classes.label}>Product price</FormHelperText>
                     <TextField

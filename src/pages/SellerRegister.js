@@ -167,7 +167,7 @@ export default function SellerRegister() {
                 fullWidth
                 id="firstname"
                 label="First Name"
-                name="firstaname"
+                name="firstname"
                 autoFocus
                 InputProps={{
                   className: classes.TextField,
@@ -259,6 +259,12 @@ export default function SellerRegister() {
                 renderInput={(params) => <TextField {...params} label="Organization" />}
                 />
               </FormControl>
+              <OutlinedInput
+              id="upload-script"
+              type="file"
+              sx={classes.CustomOutlineTextField}
+              value={values.script}
+              onChange={() => handleChange('script')}/>
               <Button
                 type="submit"
                 fullWidth
