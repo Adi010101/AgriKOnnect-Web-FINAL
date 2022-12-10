@@ -98,7 +98,7 @@ export default function RecentTransactions(props) {
             >   
                 <Toolbar id="back-to-top-anchor"/>
                 <Stack direction='row'>
-                    <Button onClick={() => navigate('/customer/account')}>
+                    <Button onClick={() => navigate('/customer-account')}>
                         <ArrowBackIcon sx = {classes.arrowback}/>
                     </Button>
                     <Typography variant='h3' sx={classes.Header}>
@@ -111,10 +111,10 @@ export default function RecentTransactions(props) {
                         return (
                         <Box sx={{ width: '100%', marginBottom: 1 }}>
                             <Stack direction={{ xs: "column-reverse"}}  spacing={10}>
-                            <Item key={index}>
+                            <Item key={idx}>
                                 <ListItem alignItems="flex-start">
-                                {image && <ListItemIcon>{image}</ListItemIcon>}
-                                <ListItemText primary={name} secondary={<Typography
+                                
+                                <ListItemText primary={item.order_name} secondary={<Typography
                                 sx={{ display: 'inline',
                                 fontFamily: 'Poppins',
                                 fontWeight: 'bold',
@@ -123,7 +123,8 @@ export default function RecentTransactions(props) {
                                 variant="body2"
                                 color="text.primary"
                                 >
-                                {priceperkg}
+                                {item.order_qty}
+                                {item.order_total}.00
                                 </Typography>
                                 } 
                                 primaryTypographyProps={{ style: classes.producttitle }}

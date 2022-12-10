@@ -175,79 +175,65 @@ export default function EditProduct() {
         <Typography variant='h4' sx={classes.Header}>
           Edit Product
         </Typography>
-        <Stack direction="row" alignItems="center" spacing={2}>
-            <Button sx = {classes.AddImageButton} component="label">
-                <AddIcon sx={classes.addIcon}/>
-                <input hidden accept="image/*" multiple type="file" />
-            </Button>
-            <Stack direction="column">
-                <Button sx = {classes.EditImageButton} component="label">
-                    Update product image
-                    <input hidden accept="image/*" multiple type="file" />
-                </Button>
-                <Typography sx={classes.Subtitle}>
-                    Upload an image of your product
-                </Typography>
-            </Stack>
-        </Stack>
         <Stack direction="column" spacing={1}>
             <Typography variant='h5' sx={classes.SecondHeader}>
                 Edit product details
             </Typography>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
-            <FormHelperText sx={classes.label}>Select product category</FormHelperText>
+            <Typography sx={classes.label}>Select product category</Typography>
             <Select
+            id = "category"
+            name = "category"
             value={category}
-            onChange={handleChange}
+            onChange={(e) => handleInput(e)} 
+            defaultValue={productInput?.category}
             displayEmpty
             sx={classes.labelItem}
             >
-                <MenuItem value="">
-                <em>Category</em>
-                </MenuItem>
                 <MenuItem value={"Vegetables"}>Vegetables</MenuItem>
                 <MenuItem value={"Fruits"}>Fruits</MenuItem>
             </Select>
-            <FormHelperText sx={classes.label}>Product name</FormHelperText>
+            <Typography sx={classes.label}>Product name</Typography>
             <TextField
                 hiddenLabel
-                id="productname"
-                defaultValue=""
+                id="name"
+                name = "name"
+                onChange={(e) => handleInput(e)} 
+                value={productInput?.name} 
                 sx={classes.labelItem}
             />
-            <FormHelperText sx={classes.label}>Growing Method</FormHelperText>
+            <Typography sx={classes.label}>Growing Method</Typography>
             <Select
-            value={growingmethod}
-            onChange={onhandleChange}
+            onChange={(e) => handleInput(e)} 
+            defaultValue={productInput?.description}
             displayEmpty
             sx={classes.labelItem}
             >
-                <MenuItem value="">
-                <em>Organic</em>
-                </MenuItem>
                 <MenuItem value={"Organic"}>Organic</MenuItem>
                 <MenuItem value={"Fertilizer"}>Fertilizer</MenuItem>
             </Select>
-            <FormHelperText sx={classes.label}>Product price</FormHelperText>
+            <Typography sx={classes.label}>Product price</Typography>
             <TextField
                 hiddenLabel
-                id="productprice"
-                defaultValue=""
+                id="price"
+                name = "price"
+                onChange={(e) => handleInput(e)} 
+                value={productInput?.price}
                 sx={classes.labelItem}
             />
             <Stack direction='row'>
-            <FormHelperText sx={classes.label}>Product quantity</FormHelperText>
-            <ButtonGroup sx= {classes.stepper} size="small" aria-label="small button group">
-            <Button sx={classes.StepperButton} onClick={IncNum}>+</Button>
-                <Button sx = {classes.number}>{count}</Button>
-                <Button sx={classes.StepperButton} onClick={DecNum}>-</Button>
-            </ButtonGroup>
-            <Typography sx={classes.stepperlabel}> 
-                kg
-            </Typography>
+            <Typography sx={classes.label}>Product quantity</Typography>
+            <TextField
+                fullWidth
+                id="quantity"
+                name="quantity"
+                onChange={handleInput} 
+                value={productInput?.quantity}
+                sx={classes.labelItem}
+            />
             </Stack>
             <Stack direction='row' sx = {classes.positionButtons}>
-                <Button variant="contained" sx={classes.AddButton}>SAVE CHANGES</Button>
+                <Button variant="contained" sx={classes.AddButton} onClick={(e) => updateProduct(e)}>SAVE CHANGES</Button>
                 <Button variant="contained" sx={classes.CancelButton} onClick={() => navigate('/products')}>CANCEL</Button>
             </Stack>
             </FormControl>

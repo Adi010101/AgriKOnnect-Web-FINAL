@@ -132,6 +132,14 @@ const RecentSoldList = [
       name: "Pechay",
       reviews: "12",
       path: "/account/review/product",
+      comment: "Fast transaction.",
+      image: <Image duration = {0} src={productimg} height={50} width={50} />,
+    },
+    {
+      name: "Pechay",
+      reviews: "12",
+      path: "/account/review/product",
+      comment: "Fast transaction.",
       image: <Image duration = {0} src={productimg} height={50} width={50} />,
     },
     {
@@ -140,13 +148,7 @@ const RecentSoldList = [
       path: "/account/review/product",
       image: <Image duration = {0} src={productimg} height={50} width={50} />,
     },
-    {
-      name: "Pechay",
-      reviews: "12",
-      path: "/account/review/product",
-      image: <Image duration = {0} src={productimg} height={50} width={50} />,
-    },
-  ];
+];
 
 
 

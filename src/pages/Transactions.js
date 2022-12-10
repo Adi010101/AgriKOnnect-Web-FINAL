@@ -4,17 +4,16 @@ import { Box,
     ButtonGroup,
     Typography,
     Toolbar,
-    Stack,
     Paper, 
     styled,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemIcon,
+    Table,
+    TableHead,
+    TableRow,
+    TableContainer,
+    TableBody,
     Fab,} from '@mui/material';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import ResponsiveDrawer from '../components/Drawer';
-import { Image } from 'mui-image';
-import productimg from '../assets/lettuce.png';
 import {useNavigate} from 'react-router-dom';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ScrollTop from '../components/ScrollToTop';
@@ -102,71 +101,37 @@ const classes = {
   },
 }
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: '#31A05F',
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+    fontFamily: 'Poppins',
+  },
+}));
 
-//Storing of tempdata
-const RecentSoldList = [
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
   },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
   },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    date: "January 1, 2022",
-    path: '/',
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-];
+}));
 
+//Storing tempdata
+function createData(customername, productname, quantity, rating,comment) {
+    return { customername, productname, quantity, rating,comment };
+  }
+  
+  const rows = [
+    createData('Althea Baculi', 'Pechay', 25, '4/5','fast transactions.'),
+  ];
 
 export default function Transactions(props) {
   const navigate = useNavigate();
@@ -179,32 +144,40 @@ export default function Transactions(props) {
       >
         <Toolbar id="back-to-top-anchor"/>
         <Typography variant='h3' sx={classes.Header}>
-          Transaction History
+          Transactions
         </Typography>
         <ButtonGroup sx={classes.positionButton}>
           <Button sx={classes.OngoingButton} onClick={() => navigate('/transactions/ongoing')}>Ongoing</Button>
           <Button sx={classes.DeliveredButton} onClick={() => navigate('/transactions/delivered')}>Delivered</Button>
         </ButtonGroup>
-        <List>
-              {RecentSoldList.map((item, index) => {
-                const { name,date, image, path} = item;
-                return (
-                  <Box sx={{ width: '100%', marginBottom: 1 }}>
-                    <Stack direction={{ xs: "column-reverse"}}  spacing={10}>
-                      <Item key={index}>
-                        <ListItem>
-                          {image && <ListItemIcon>{image}</ListItemIcon>}
-                          <ListItemText primary={name} secondary={date} 
-                          primaryTypographyProps={classes.producttitle }
-                          secondaryTypographyProps={classes.productsub}/>
-                          <Button variant="contained" sx={classes.transacbutton} onClick={() => navigate('/transactions/ongoing/details')}>VIEW</Button>
-                        </ListItem>
-                      </Item>
-                    </Stack>
-                  </Box>
-                );
-                })}
-        </List>
+        <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Order ID</StyledTableCell>
+              <StyledTableCell align="right">Product Name</StyledTableCell>
+              <StyledTableCell align="right">Quantity&nbsp;(kg)</StyledTableCell>
+              <StyledTableCell align="right">Total Price</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <StyledTableRow
+                key={row.customername}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <StyledTableCell component="th" scope="row">
+                  {row.customername}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.productname}</StyledTableCell>
+                <StyledTableCell align="right">{row.quantity}</StyledTableCell>
+                <StyledTableCell align="right">{row.rating}</StyledTableCell>
+                <StyledTableCell align="right">{row.comment}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       </Box>
       <ScrollTop {...props}>
         <Fab sx= {classes.ScrollTopButton} size="medium" aria-label="scroll back to top">

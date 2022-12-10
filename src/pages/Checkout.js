@@ -115,10 +115,7 @@ export default function Checkout() {
                         Checkout Details
                         </Typography>
                   </Stack>
-                  <Stack direction='column' spacing={2}>
-                      <Box sx = {classes.illustration}>
-                          <Image duration = {0} src={productimg} height= {"50hv"} width= {"50hv"}></Image>
-                      </Box>    
+                  <Stack direction='column' spacing={2}>   
                       <Box sx = {classes.illustration}>
                           <Typography variant='h5' sx={classes. SubHeader}>
                           Patatas
@@ -129,8 +126,7 @@ export default function Checkout() {
                           ₱ 50.00
                           </Typography>
                       </Box>
-                      <FormControl sx={{ m: 1, minWidth: 120 }}>
-                      <FormHelperText sx={classes.label}>Shipping Address</FormHelperText>
+                      <Typography  sx={classes.label}>Shipping Address</Typography >
                         <Box sx={{ width: '100%', marginBottom: 1 }}>
                             <Item sx={classes.ButtonContainer}>
                                 <ListItemButton onClick={() => navigate('/selectaddress')}>
@@ -139,7 +135,7 @@ export default function Checkout() {
                                 </ListItemButton>
                             </Item>
                         </Box>
-                        <FormHelperText sx={classes.label}>Select Payment Method</FormHelperText>
+                        <Typography  sx={classes.label}>Select Payment Method</Typography >
                             <Box sx={{ width: '100%', marginBottom: 1 }}>
                                 <Item sx={classes.ButtonContainer}>
                                     <ListItemButton onClick={() => navigate('/paymentmethod')}>
@@ -148,7 +144,7 @@ export default function Checkout() {
                                     </ListItemButton>
                                 </Item>
                             </Box>
-                        <FormHelperText sx={classes.label}>Voucher</FormHelperText>
+                        <Typography  sx={classes.label}>Voucher</Typography >
                             <Select
                             value={voucher}
                             onChange={onhandleChange}
@@ -160,7 +156,7 @@ export default function Checkout() {
                             </MenuItem>
                             <MenuItem value={"0"}> ₱ </MenuItem>
                         </Select>
-                        <FormHelperText sx={classes.label}>Subtotal</FormHelperText>
+                        <Typography  sx={classes.label}>Subtotal</Typography >
                         <TextField
                             hiddenLabel
                             id="subtotal"
@@ -170,7 +166,7 @@ export default function Checkout() {
                                 readOnly: true,
                               }}
                         />
-                        <FormHelperText sx={classes.label}>Order Amount (Fees included)</FormHelperText>
+                        <Typography sx={classes.label}>Order Amount (Fees included)</Typography >
                         <TextField
                             hiddenLabel
                             id="orderamount"
@@ -180,7 +176,6 @@ export default function Checkout() {
                                 readOnly: true,
                               }}
                         />
-                </FormControl>
                 <Box sx = {classes.illustration}>
                     <Stack direction='row'>
                         <Button sx={classes.SubmitButton} aria-label="add">

@@ -106,56 +106,22 @@ export default function Password() {
                 </Typography>
             </Stack>
             <Stack direction="column" sx={classes.TextPosition}>
-                <Box component="form">
+                <Box component="form" onSubmit={(e) => updatePassword(e)}>
                     <Typography sx={classes.label}>
                     NEW PASSWORD
                     </Typography>
-                    <FormControl sx={{ m: 1, width: '25ch',display: 'flex',
+                    <Box sx={{ m: 1, width: '25ch',display: 'flex',
                     alignItems: 'center', }} variant="standard">
                     <InputLabel htmlFor="standard-adornment-password"></InputLabel>
                     <Input
                         id="standard-adornment-password"
-                        type={values.showPassword ? 'text' : 'password'}
-                        value={values.password}
-                        onChange={handleChange('password')}
-                        endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            >
-                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                        }
+                        type={'password'}
+                        onChange={(e) => handleInput(e)} 
+                        defaultValue={errorInput[0]?.password}
                     />
-                    </FormControl>
-                    <Typography sx={classes.label}>
-                        CURRENT PASSWORD
-                    </Typography>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-password"></InputLabel>
-                    <Input
-                        id="standard-adornment-password"
-                        type={values.showPassword ? 'text' : 'password'}
-                        value={values.password}
-                        onChange={handleChange('password')}
-                        endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            >
-                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                        }
-                    />
-                    </FormControl>
+                    </Box>
                 </Box>
-                <Button sx={classes.EditButton} aria-label="add" onClick={() => navigate('/account')}>
+                <Button sx={classes.EditButton} aria-label="add">
                         SAVE CHANGES
                 </Button>
             </Stack>

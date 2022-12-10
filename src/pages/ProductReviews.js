@@ -57,12 +57,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 //Storing tempdata
-function createData(customername, productname, quantity, rating) {
-    return { customername, productname, quantity, rating };
+function createData(customername, productname, quantity, rating,comment) {
+    return { customername, productname, quantity, rating,comment };
   }
   
   const rows = [
-    createData('Althea Baculi', 'Pechay', 25, '4/5'),
+    createData('Althea Baculi', 'Pechay', 25, '4/5','fast transactions.'),
   ];
 
 export default function ProductReviews() {
@@ -92,6 +92,7 @@ export default function ProductReviews() {
               <StyledTableCell align="right">Product Name</StyledTableCell>
               <StyledTableCell align="right">Quantity&nbsp;(kg)</StyledTableCell>
               <StyledTableCell align="right">Rating</StyledTableCell>
+              <StyledTableCell align="right">Comment</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -106,6 +107,7 @@ export default function ProductReviews() {
                 <StyledTableCell align="right">{row.productname}</StyledTableCell>
                 <StyledTableCell align="right">{row.quantity}</StyledTableCell>
                 <StyledTableCell align="right">{row.rating}</StyledTableCell>
+                <StyledTableCell align="right">{row.comment}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

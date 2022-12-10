@@ -111,12 +111,6 @@ export default function EditCustomerInfo() {
                     />
                     </Box>    
                     <Box sx = {classes.illustration}>
-                            <Button sx={classes.UploadImageButton} component="label">
-                                UPLOAD IMAGE
-                                <input hidden accept="image/*" multiple type="file" />
-                            </Button>
-                    </Box>
-                    <Box sx = {classes.illustration}>
                         <Stack direction="column" spacing={1}>
                             <FormControl sx={{ m: 1, minWidth: 120 }}>
                                 <FormHelperText sx={classes.label}>First Name</FormHelperText>
@@ -151,17 +145,6 @@ export default function EditCustomerInfo() {
                                         autoComplete="email"
                                         sx={classes.labelItem}
                                     />
-                                <FormControl fullWidth sx={{marginTop: 3}}>
-                                    <FormHelperText sx={classes.label}>Barangay</FormHelperText>
-                                    <Autocomplete
-                                    id="grouped-demo"
-                                    fullWidth
-                                    options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
-                                    groupBy={(option) => option.firstLetter}
-                                    getOptionLabel={(option) => option.title}
-                                    renderInput={(params) => <TextField {...params} />}
-                                    sx ={classes.labelItem}/>
-                                </FormControl>
                             </FormControl>
                         </Stack>
                     </Box>

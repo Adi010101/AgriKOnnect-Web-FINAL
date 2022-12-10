@@ -183,7 +183,7 @@ export default function Ongoing(props) {
       >
         <Toolbar id="back-to-top-anchor"/>
         <Typography variant='h3' sx={classes.Header}>
-          Transaction History
+          Transactions
         </Typography>
         <ButtonGroup sx={classes.positionButton}>
           <Button sx={classes.OngoingButton} onClick={() => navigate('/transactions/ongoing')}>Ongoing</Button>

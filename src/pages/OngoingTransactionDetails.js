@@ -36,31 +36,16 @@ const classes = {
       marginBottom: 5,
       justifyContent: 'center',
     },
-    PackedButton:{
-      fontFamily: 'Poppins',
-      fontWeight: 'bold',
-      backgroundColor: '#6FCF97',
-      borderColor: '#FFFF',
-      borderRadius: 2,
-      color: '#FFFF',
-      "&:hover": {
-        color: '#FFFF',
-        backgroundColor: '#388E3C',
-        borderColor: '#FFFF',
-      },
-    },
     DeliveredButton:{
       fontFamily: 'Poppins',
       fontWeight: 'bold',
       marginLeft: 1,
-      backgroundColor: '#6FCF97',
-      borderRadius: 2,
-      color: '#FFFF',
-      borderColor: '#FFFF',
+      backgroundColor:'#F5E12A',
+      color: '#000000',
+      padding: 1,
       "&:hover": {
         color: '#FFFF',
         backgroundColor: '#388E3C',
-        borderColor: '#FFFF',
       },
     },
     producttitle: {
@@ -178,7 +163,6 @@ export default function OngoingTransactionDetails() {
             <StyledTableCell align="left">Delivery Address</StyledTableCell>
             <StyledTableCell align="left">Mode of Payment</StyledTableCell>
             <StyledTableCell align="left">Shipping Status</StyledTableCell>
-            <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -191,12 +175,10 @@ export default function OngoingTransactionDetails() {
                 {row.customername}
               </StyledTableCell>
               <StyledTableCell align="left">{row.deliveryaddress}</StyledTableCell>
-              <StyledTableCell align="left">{row.modeofpayment}</StyledTableCell>
-              <StyledTableCell align="left">{row.status}</StyledTableCell>   
-              <StyledTableCell align="right">
-                <Button variant="contained" sx={classes.PackedButton}>PACKED</Button>
-                <Button variant="contained" sx={classes.DeliveredButton}>DELIVERED</Button>
-              </StyledTableCell>           
+              <StyledTableCell align="left">{row.modeofpayment}</StyledTableCell> 
+              <StyledTableCell align="left">
+                <Button variant="contained" sx={classes.DeliveredButton}>OUT FOR DELIVERY</Button>
+              </StyledTableCell>         
             </StyledTableRow>
           ))}
         </TableBody>

@@ -207,6 +207,7 @@ export default function SellerRegister() {
               <TextField
                 margin="normal"
                 fullWidth
+                required
                 id="email"
                 label="Email Address"
                 name="email"
@@ -216,6 +217,7 @@ export default function SellerRegister() {
               />
               <MuiTelInput 
               fullWidth 
+              required
               id="phonenumber"
               name="phonenumber"
               defaultCountry={'PH'}
@@ -248,20 +250,11 @@ export default function SellerRegister() {
                 label="Password"
               />
               </FormControl>
-              <FormControl fullWidth sx={{marginTop: 3}}>
-                <Autocomplete
-                sx={classes.CustomTextField}
-                id="grouped-demo"
-                fullWidth
-                options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
-                groupBy={(option) => option.firstLetter}
-                getOptionLabel={(option) => option.title}
-                renderInput={(params) => <TextField {...params} label="Organization" />}
-                />
-              </FormControl>
               <OutlinedInput
               id="upload-script"
               type="file"
+              fullWidth
+              required
               sx={classes.CustomOutlineTextField}
               value={values.script}
               onChange={() => handleChange('script')}/>
@@ -284,7 +277,7 @@ export default function SellerRegister() {
                 Already have an account?
                 <Link sx={classes.Text} href="/seller/login" variant="body1">
                           {" Login here"}
-                        </Link>
+                </Link>
                 </Typography>
             </Box>
           </Box>

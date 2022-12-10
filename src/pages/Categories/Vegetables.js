@@ -96,34 +96,6 @@ const CategoriesButton = [
     image: <Image duration = {0} src={freedelivery} sx={classes.positionImage} height={150} width={150} />,
   },
 ];
-//Storing of tempdata
-const BestSellerList = [
-  {
-    name: "Pechay",
-    priceperkg: "Php.40.00/kg",
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    priceperkg: "Php.40.00/kg",
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    priceperkg: "Php.40.00/kg",
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    priceperkg: "Php.40.00/kg",
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  },
-  {
-    name: "Pechay",
-    priceperkg: "Php.40.00/kg",
-    image: <Image duration = {0} src={productimg} height={50} width={50} />,
-  }
-];
 
 //List of Categories Containers
 function InnerGrid() {
